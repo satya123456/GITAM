@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="lib.js"></script>
+</head>
+<body>
+    <script>
+         let numbers = [5,7,10,4,77,24];
+         let products = [
+            {
+                "id": 1, "name": "iPhone 16", "price": 89000.00, "category": "mobile"
+            },
+            {
+                "id": 2, "name": "Sony Bravia", "price": 271000.00, "category": "tv"
+            },
+            {
+                "id": 3, "name": "Samsung Fold", "price": 145000.00, "category": "mobile"
+            },
+            {
+                "id": 3, "name": "Logitech Mouse", "price": 540.00, "category": "computer"
+            },
+            {
+                "id": 4, "name": "Onida ", "price": 3000.00, "category": "tv"
+            }
+         ];
+
+         let evens = filter(numbers, function(no) {
+            return no % 2 === 0;
+         });
+
+         forEach(evens, console.log); 
+
+         let mobiles = filter(products, function(p) {
+            return p.category === 'mobile';
+         });
+
+         forEach(mobiles, console.log);
+
+    function toCard(product) {
+        return `
+            <div className='card'>
+                <div className='card-header'>
+                    ${product.name}
+                </div>
+                <div className='card-body'>
+                    ${product.price}
+                </div>
+            </div>
+        `
+    } 
+
+    let cards = map(products, toCard);
+    forEach(cards, console.log);
+    </script>
+</body>
+</html>

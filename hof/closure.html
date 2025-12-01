@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="lib.js"></script>
+</head>
+<body>
+    <script>
+        function fibanocci(no) {
+            if(no == 0 || no == 1) {
+                return 1;
+            } else {
+                return fibanocci(no -1) + fibanocci(no-2);
+            }
+        }
+
+        var memFib = memo(fibanocci);
+
+        console.time("first");
+            console.log(memFib(40));
+        console.timeEnd("first");
+
+         console.time("second");
+            console.log(memFib(40));
+        console.timeEnd("second");
+
+    </script>
+</body>
+</html>
