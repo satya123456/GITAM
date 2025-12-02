@@ -84,38 +84,123 @@ adding
 2) Template string -> look into hof toCard() ``
 3) Promise API, to execute async code on Micro Task Queue on a seperate thread
 
-```
-console.log("Hello!!!");
-setTimeout(function timed1() {
-    console.log("t1")
-},0);
-
-setTimeout(function timed2() {
-    console.log("t2")
-},0);
-function somePromiseTask() {
-            return new Promise(function (resolve, reject) {   
-                    resolve("Get your Data!!");
-            });
- }
-// Non blocking code
-somePromiseTask().then(
-    function resolved(data) {
-                console.log("Data Resolved ", data);
-    },
-    function rejected(err){
-                console.log("Boom :-(", err);
-    }
-);
-
 console.log("Another Task!!!");
 console.log("Bye!!!");
 ```
 
+Day 2:
 
-Event Loop
+Promise API --> execute async code in a seperate thread.
+4) Arrow functions
+5) Async and Await
+Async and await are syntatical sugar on top of promise api
 
-tick
+6) Enhanced Object literal
 
-Thread
+```
+    let title = "iPhone 18";
+    let price = 890000.00
 
+    let product = {title, price};
+
+    // same as
+    let product = {
+        title: title,
+        price: price
+    }
+
+```
+
+7) Destructuring Objects
+
+```
+ let product = {
+        title: "iPhone 18",
+        price: 890000.00
+    }
+
+let {title, price} = product; // here title and price becomes local variable
+```
+
+8) Destructuring arrays
+
+```
+    let data = [63, 22, 61];
+
+    let [a, b, c] = data; // a -> 63, ..
+
+    let colors = ["red", "green", "blue", "pink", "orange"];
+
+    let [r, g, ...others] = colors;
+
+    r --> red
+    g -> green
+    others -> ["blue", "pink", "orange"];
+```
+
+9) Clone
+
+```
+ let data = [63, 22, 61];
+ let ref = data;
+ ref[0] = 999;
+ data[0] ---> 999
+ let dups = [...data]; //clone
+ dups[1] = 111;
+ data[1] --> 22
+
+```
+
+10) class
+11) Modules
+
+Module System: for better encapsulation [private , public ]
+1) IIFE -> Immediately Invoked Function Expression
+
+```
+let CustomerModule = ( function(){
+    let data = [];
+    function add(a) {
+
+    }
+
+    return {
+        add
+    }
+})();
+
+let ShopModule = (
+    function() {
+        let data = ["iphone", "sony"];
+
+        // public
+        function add(a) {
+            data.push(a);
+        }
+
+        // public
+        function list() {
+            return data;
+        }
+
+        return {
+            add, list
+        }
+    }
+)();
+
+ShopModule.add("Wacom"); // valid
+ShopModule.list(); // valid
+
+ShopModule.data; // error, private to ShopModule
+
+```
+
+2) CommonJS module --> default used by NodeJS
+module.exports and require [import]
+
+3) AMD -> Asynchronous Module Defintion
+4) ESM -> ES 6 Module System
+export and import
+
+===========
