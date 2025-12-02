@@ -204,3 +204,87 @@ module.exports and require [import]
 export and import
 
 ===========
+
+PART 2:
+NodeJS -> platform
+Why NodeJS?
+1) Building APIs -> RESTful WS / GraphQL Ws
+2) Building Traditional Web applicaiton --> SSR [ like PHP, Servlet, ASP.NET]
+3) Real time applications like ChatBot
+4) Building client side web applications 
+
+Why NodeJS for client side web applications like using with React, Angular, ...
+
+1) We may prefer to write code in different languages like CoffeeScript, livescript, DART, TypeScript, latest version of JS
+
+TypeScript : statically typed language, to make code TypeSafe.
+
+Browser doesn't understand them.
+We use Transpiler or Compiler to convert them into understandable code in Browser
+Babel --> Transpiler -> convert higher version of JS to lower version
+TSC --> compiler -> TS -> JS
+
+2) Unit testing, Integration testing, E2E testing
+3) Lint --> Static code analysis [coding stds and conventions]
+4) Minify
+```
+    function doTask() {
+        for (i = 0; i < 10; i ++) {
+            console.log(i);
+        }
+    }
+
+    gets converted to:
+     function doTask(){for(i=0;i< 10;i++) {console.log(i);}}
+
+```
+5) Uglify
+
+```
+    function getEmployees(){
+        let employees = getData();
+    }
+
+    gets into:
+    function _ge(){
+        let _e = getData();
+    }
+```
+
+6) Bundling:
+I may have product.js, customer.js, payment.js, order.js, address.js,,,
+I may have product.css, customer.css, ....
+
+index.html
+``` 
+    <script src="product.js"></script>
+    <script src="customer.js"></script>
+    <script src="address.js"></script>
+    <script src="order.js"></script>
+    <script src="payment.js"></script>
+    <link src="product.css" rel="stylesheet">
+```
+Above lines leads to multiple HTTP requests to the server --> 7 network calls from browser . Also ordering is important
+
+Solution is bundling
+
+```
+index.html
+    <script src="bundle.js"></script>
+```
+
+=============
+
+NodeJS project:
+
+1) npm init --y
+
+This creates a package.json file
+this file is where we configure dependencies and scripts
+
+2) npm i lodash
+3) npm i jest -D
+
+lodash --> JS util library
+jest --> Testing Library
+Above statements will install modules and transitive depenendent modules into "node_modules" folder
