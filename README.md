@@ -410,3 +410,6 @@ bundle.dfdfg$122cw.js
 Also we may have many bundle files
 
 webpack-dev-server -- miniature HTTP web server useful in development env only
+
+npm i @babel/preset-react 
+

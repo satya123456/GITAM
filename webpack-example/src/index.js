@@ -1,6 +1,8 @@
 import Product from "./Product"; // ESM
 import filter, {map, memo} from "./lib";
 
+import './styles.css'
+
 let add = (x, y) => x + y;
 
 console.log(add(4,5));
@@ -40,3 +42,20 @@ let mobiles = filter(products, function (p) {
 });
 
 mobiles.forEach(product => console.log(product));
+
+
+let  React = {
+    createElement: (tag, props, ...children) => {
+         var element = {tag, props: {...props, children}};
+         return element;
+    }
+}
+
+
+
+let ProductCard = <div>
+    <div>{product.getTitle()}</div>
+    <div>{product.getPrice()}</div>
+</div>
+
+console.log(ProductCard);
