@@ -44,6 +44,19 @@ let mobiles = filter(products, function (p) {
 mobiles.forEach(product => console.log(product));
 
 
+function render(element, container) {
+    if(['string','number'].includes(typeof element)) {
+        container.appendChild(document.createTextNode(String(element)));
+        return;
+    }
+    let domElement = document.createElement(element.tag);
+    if(element.props.children) {
+        element.props.children.forEach(child => render(child, domElement))
+    }
+    container.appendChild(domElement);
+}
+
+
 let  React = {
     createElement: (tag, props, ...children) => {
          var element = {tag, props: {...props, children}};
@@ -52,10 +65,12 @@ let  React = {
 }
 
 
-
+// JSX
 let ProductCard = <div>
-    <div>{product.getTitle()}</div>
-    <div>{product.getPrice()}</div>
+    <h1>{product.getTitle()}</h1>
+    <p>{product.getPrice()}</p>
 </div>
 
 console.log(ProductCard);
+
+render(ProductCard, document.getElementById("root"));

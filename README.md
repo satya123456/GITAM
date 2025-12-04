@@ -413,3 +413,33 @@ webpack-dev-server -- miniature HTTP web server useful in development env only
 
 npm i @babel/preset-react 
 
+
+====
+
+Day 4
+
+Steps:
+1) 
+import Product from "./Product"; 
+
+a) babel-loader loads Product.js
+b) gives it to @babel/core - transcompiler
+c) @babel/core uses @babel/preset-env for syntax transform and polyfills
+
+2) import './styles.css'
+a) css-loader loads styles.css
+b) loaded styles.css is placed inside style tags in index.html by style-loader
+
+==============
+
+Build tool Vite :veet -- FEB 2025 for react
+
+next-generation build tool, built in support for typescript, JSX, CSS, ..
+Better server for instant startup
+
+npm create vite@latest
+Vanilla
+JavaScript
+
+npm run dev
+
