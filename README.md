@@ -552,3 +552,10 @@ any changes will be not updating DOM, instead it makes a copy of VDOM and make c
 ```
 
 React Event handling: onEvent like onClick, onKeyPress, onChange, ...
+
+<Recipe recipe={recipe}/>
+
+<Ingredients ingredients={ingredients} />
+
+
+
