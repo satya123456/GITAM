@@ -524,8 +524,28 @@ react
 javascript
 
 npm run dev
-
+  "test": "vitest --coverage --coverage.inclue=src/components/*.jsx",
+  
 =====
 
+Day 5:
+
+props - data passed from parent to child component.
+like attributes of DOM element
+
+```
+    <img src="avatar.png" width="50px" />
+    here we can say src and width are props
+    In DOM terminology it is attributes
+```
+Warning:
+CustomerList.jsx:26 Each child in a list should have a unique "key" prop.
+
+key helps us in better Reconcilliation.
+
+```
+DOM -> VDOM [Virtual DOM]
+any changes will be not updating DOM, instead it makes a copy of VDOM and make changes to VDOM copy
 
 
+```
