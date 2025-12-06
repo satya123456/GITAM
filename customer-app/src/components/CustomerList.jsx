@@ -29,13 +29,17 @@ export default class CustomerList extends Component {
     ]
   }
   deleteCustomer(id) {
+    this.y++; //any changes to y is not reflected on view
+
+
     // easiest way of deleting array elements
     let custs = this.state.customers.filter(c => c.id !== id);
     // this won't work, state updates but reconcillation won't happen
     //  this.state.customers = custs; 
     // always use setState to update state and force reconcilliation - redraw
     this.setState({
-      customers: custs
+      customers: custs,
+      age: this.state.age + 1
     })
   }
 
@@ -51,6 +55,7 @@ export default class CustomerList extends Component {
   render() {
     return (
       <div>
+        <div> Value of y = {this.y} </div>
         <Filter filterEvent = {(txt) => this.filterCustomers(txt)}/>
         {
           this.state.customers.map(cust => <CustomerRow 

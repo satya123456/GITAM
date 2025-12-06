@@ -553,9 +553,23 @@ any changes will be not updating DOM, instead it makes a copy of VDOM and make c
 
 React Event handling: onEvent like onClick, onKeyPress, onChange, ...
 
-<Recipe recipe={recipe}/>
+==========
 
-<Ingredients ingredients={ingredients} />
+Day 6 [SATURDAY]
+
+JS Unit Testing libraries / frameworks
+1) Mocha [Prefered for Server side JS]
+2) Jasmine [Angular]
+3) JEST [webpack]
+4) vitest [vite]
+
+few assertion libraries vary among them.
+
+AAA --> Assemble Action Assert [TCER]
+
+npm i vitest jsdom -D
+
+
 
 
 
