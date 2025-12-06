@@ -629,3 +629,6 @@ Make dependent API calls in componentDidUpdate()
 shouldComponentUpdate() -> conditionally update the component
 
 npm install @faker-js/faker 
+
+CSS Framework: bootstrap
+npm i bootstrap
