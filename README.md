@@ -569,7 +569,37 @@ AAA --> Assemble Action Assert [TCER]
 
 npm i vitest jsdom -D
 
+====
+
+RTL - React Testing library
+
+https://testing-library.com/docs/react-testing-library/intro/
+
+npm install  @testing-library/react @testing-library/dom -D
+https://testing-library.com/docs/queries/about/#types-of-queries
+
+Prefer below APIs for getting elements / components instead of using DOM
+document.querySelector('.tmpl-headerNavItem_label')
+
+```
+Below functionalities are available in "screen" object of RTL
+getByRole [form elements]
+Example:
+getAllByRole('button') --> gets all buttons in UI
+getByLabelText
+getByPlaceholderText
+Example:
+getByPlaceholderText(/search by name/)
+getByText
+getByText(/Customer Application/i)
+getByTestId
+
+similarly for queryBy and findBy
+```
 
 
+Code Coverage -> How much of your code has been tested?
+* istanbul
+* coverage-v8
 
-
+npm i @vitest/coverage-v8 -D

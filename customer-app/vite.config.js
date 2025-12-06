@@ -9,8 +9,8 @@ export default defineConfig({
         open: true
     },
     test: {
-    environment: 'jsdom',
-    globals: true
+      environment: 'jsdom',
+      globals: true
   }
 }
 )

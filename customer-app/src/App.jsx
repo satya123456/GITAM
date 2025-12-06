@@ -2,7 +2,12 @@
 import CustomerList from './components/CustomerList'
 
 function App() {
-  return <CustomerList />
+  return  <div>
+        <h1>Customer Application</h1>
+        <CustomerList />
+  </div>
+  
+
 }
 
 export default App
