@@ -24,5 +24,6 @@ type MarginPadding = {
 
 const boxCSS: MarginPadding = {
     'margin-top':'25px',
-    'padding': '5em'
+    'padding': '5em',
+     'margin':'5px'
 }

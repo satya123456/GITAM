@@ -2,7 +2,7 @@
 // R is the new type infer from a function return value
 type ResultTypeOf<T> = T extends (...args:any[]) => infer R ? R : never
 
-function someTask(name:string, age: number) {
+function somerTask(name:string, age: number) {
     // return Object literal
     return {
         name,
@@ -11,9 +11,9 @@ function someTask(name:string, age: number) {
     }
 }
 
-type SomeTaskResultType = ResultTypeOf<typeof someTask>
+type SomeTaskResultType = ResultTypeOf<typeof somerTask>
 
-let result: SomeTaskResultType = someTask("Roger", 45);
+let result: SomeTaskResultType = somerTask("Roger", 45);
 
 type PromiseType = ResultTypeOf<typeof fetch>
 let users: PromiseType = fetch("");
@@ -25,9 +25,7 @@ let users: PromiseType = fetch("");
 
 type FirstArgType<T> = T extends (first:infer U, ...args:any[]) => any ? U :never;
 
-function task(name:string, age: number, email: string, address :string) {
 
-}
 type T = FirstArgType<typeof task>;
 
 type FetchFirstArg = FirstArgType<typeof fetch>
@@ -42,7 +40,9 @@ type T1 = SecondArgType<typeof task>;
 type FetchSecondArg = SecondArgType<typeof fetch>
 
 // Extracting Parameters
+function task(name:string, age: number, email: string, address :string) {
 
+}
 type MyParam<T> = T extends (...args: infer P) => any ? P : never;
 
 type params = MyParam<typeof task>

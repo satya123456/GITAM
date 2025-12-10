@@ -24,7 +24,7 @@ let emp:ImmutableEmployee = {
 };
 
 // emp.name = "Peter"; // error
-
+console.log(emp.name);
 type Mobile = {
     "title": string,
     "price": number,
@@ -41,3 +41,4 @@ type Optional<T> = {
 type OptOpp = Optional<Mobile>;
 
 let opt: OptOpp = {"title": "OPP MAX"};
+console.log(opt);

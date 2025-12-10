@@ -1,17 +1,17 @@
 const data = [27,8,33,11,57,235,147];
 
-let high = data.findLast(x => x > 100);
+//let high = data.findLast(x => x > 100);
 
-console.log(high);
+//console.log(high);
 
 let values:number[] = [10,20,3];
 
 
-function add(a: number, b: number) : number {
+function adition(a: number, b: number) : number {
     return a + b;
 }
 
-add(4,6); 
+console.log(adition(4,6)); 
 
 //   add(54, values[1] ); // add(54,20); 
 
@@ -19,7 +19,7 @@ add(4,6);
 // forces you to do typechecking before you use array index elements
 
 if(typeof values[1] == 'number') {
-    add(values[1], 98);
+    adition(values[1], 98);
 }
 // default param value
 
@@ -35,7 +35,7 @@ console.log(sumAll(3,7,5)) ; // 15
 
 // first parameter is a , nums can be zero to n
 function total(a:number, ...values: number[]): number {
-    return a + values.reduce( (acc, no) => acc + no);
+    return a + values.reduce( (satya, pavan) => satya +pavan);
 }   
 
 console.log(total(3,1,5,667,11,5));
@@ -44,3 +44,4 @@ console.log(total(232, 521, 45));
 let data2:number[] = [6,2,21,6,21];
 // others spread operator
 let [a, ...others] = data2;
+console.log(...others);
