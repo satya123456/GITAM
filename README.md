@@ -632,3 +632,139 @@ npm install @faker-js/faker
 
 CSS Framework: bootstrap
 npm i bootstrap
+====
+
+8-DEC: TypeScript
+
+Typescript is JS with syntax for types.
+
+JS -> loosely typed, dynamically typed language
+
+var data = "Tim"; // string
+data.toUpperCase();
+
+data = 34; // number
+data++;
+
+TS - Strongly typed, static typing built on top of JS.
+var data = "Tim"; // at this point typescript will fix data as string type
+data = 21; // error in ts
+TypeSafe environment.
+
+TypeScript compiler to compile ts files into js files => engine for exception.
+
+Part 1:
+Understand typescript compiler, tsconfig.json and basic types.
+Basic data types in TS: string, number and boolean
+
+npm init --y
+npm i typescript -D
+this provides type system libraries and tsc [compiler]
+
+Generate a tsconfig.json file
+tsc --init
+"rootDir": "./src", 
+"outDir": "./build/js",
+"target": "es2016", 
+ "include": ["src"]
+
+ tsc
+ Below config doesn't create "js" file if any issues in "ts" file
+ "noEmitOnError": true, 
+
+
+  "lib": ["ES2023.Array","DOM"], 
+  DOM -> console, document , ...
+  Specfic version of JS to be used
+
+  ===
+
+  Types:
+  1) string
+  2) number
+  3) boolean
+  4) any
+    tsc
+  node ./build/js/anyExample.js
+  5) unknown
+  6) type [the most important type]
+  To define custom types like struct of C / classes of OOP,..
+  Basically used to define the shape of object
+
+  ```
+    type Person = {
+        name: string,
+        age: number
+    }
+    function addPerson(person:Person) : void {
+        ...
+    }
+    addPerson({"name": "Tim", "age": 52}); // valid
+    addPerson({"name": "Tim"}); // invalid
+    addPerson({"name": "Tim", "age": 52, "email":"tim@gmail.com"}); // invalid 
+
+    // optional attribute
+     type Person = {
+        name: string,
+        age: number,
+        email?:string 
+    }
+    addPerson({"name": "Tim", "age": 52}); // valid
+
+    addPerson({"name": "Tim", "age": 52, "email":"tim@gmail.com"}); // valid 
+  ```
+
+  Type:
+   a) union type
+   ```
+        type Customer = Person & {
+            "phone": string,
+            "address" : string
+        }
+
+    let customer:Customer = {
+            "name": "Tim",
+         "age": 52, 
+         "email":"tim@gmail.com",
+         "phone": "1234567890"
+         "address" : ""
+         }
+   ```
+
+   b) TypeScript template literal types
+
+   TypeAssertion aka TypeCasting
+   Sometimes we have info about type that typescript can't know, in these situations we use type assertion
+
+=======
+Date :  9-DEC
+
+Generics.
+- functions, types, class
+
+Conditional Types using Generics
+
+T[P] will be name
+T[P] will be email
+T[P] will be phone
+
+====
+
+The infer keyword
+used within conditional types to extract or "infer" a type from another type
+
+For Example:
+1) we need to extract what is the return type of a function
+2) we need to know first what is first argument to a function
+3) what are the types of parameters we need to pass to a function
+
+Many a times we will use JS libraries like React, lodash, .. which are in JS and not in TypeScript
+
+
+return value of any function
+take it/ infer as R
+
+==========
+
+Complete TS and start with Functional React components
+
