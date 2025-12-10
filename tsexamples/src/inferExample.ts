@@ -48,3 +48,17 @@ type MyParam<T> = T extends (...args: infer P) => any ? P : never;
 type params = MyParam<typeof task>
 
 const dataParam: params = ['Tim', 21, "a@g.com", "M G ROAD"];
+
+
+type U = ((x: string) => void) | ((x: number, y: boolean) => void);
+type PU = MyParam<U>;
+const datapu:PU=[1,true];
+const datapus:PU=["satya"];
+
+
+
+type Ret<T> = T extends (...args: any[]) => infer R ? R : never;
+
+type Return = Ret<typeof task>
+
+const rat:Return=['Tim', 21, "a@g.com", "M G ROAD"];
