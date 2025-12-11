@@ -57,8 +57,14 @@ const datapus:PU=["satya"];
 
 
 
-type Ret<T> = T extends (...args: any[]) => infer R ? R : never;
+function tasknew(...args: any[]): string {
 
-type Return = Ret<typeof task>
+  return args.join(', ');
+}
+const results = tasknew('Tim', '21', 'a@g.com', 'M G ROA');
+console.log(results);
+// type Ret<T> = T extends (...args: any[]) => infer R ? R : never;
 
-const rat:Return=['Tim', 21, "a@g.com", "M G ROAD"];
+// type Return = Ret<typeof tasknew>
+
+// const rat:Return=['Tim', 21, "a@g.com", "M G ROAD"];
