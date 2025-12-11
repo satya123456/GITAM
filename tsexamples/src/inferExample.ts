@@ -1,4 +1,5 @@
 
+// (a > b)? a: b
 // R is the new type infer from a function return value
 type ResultTypeOf<T> = T extends (...args:any[]) => infer R ? R : never
 
@@ -7,19 +8,18 @@ function somerTask(name:string, age: number) {
     return {
         name,
         age: age,
-        employed: false
+        // employed: false
     }
 }
 
 type SomeTaskResultType = ResultTypeOf<typeof somerTask>
 
-let result: SomeTaskResultType = somerTask("Roger", 45);
+let results: SomeTaskResultType = somerTask("Roger", 45);
 
 type PromiseType = ResultTypeOf<typeof fetch>
 let users: PromiseType = fetch("");
 
 /////////////////////////////////
-
 
 // Extracting the First Argument of a function
 
@@ -48,23 +48,3 @@ type MyParam<T> = T extends (...args: infer P) => any ? P : never;
 type params = MyParam<typeof task>
 
 const dataParam: params = ['Tim', 21, "a@g.com", "M G ROAD"];
-
-
-type U = ((x: string) => void) | ((x: number, y: boolean) => void);
-type PU = MyParam<U>;
-const datapu:PU=[1,true];
-const datapus:PU=["satya"];
-
-
-
-function tasknew(...args: any[]): string {
-
-  return args.join(', ');
-}
-const results = tasknew('Tim', '21', 'a@g.com', 'M G ROA');
-console.log(results);
-// type Ret<T> = T extends (...args: any[]) => infer R ? R : never;
-
-// type Return = Ret<typeof tasknew>
-
-// const rat:Return=['Tim', 21, "a@g.com", "M G ROAD"];

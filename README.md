@@ -766,5 +766,147 @@ take it/ infer as R
 
 ==========
 
-Complete TS and start with Functional React components
+10-DEC-2025:
 
+Recap:
+
+Typescript:
+1) basic types like string, number and boolean
+2) any and unknown type
+3) type to define shape of object
+4) typecasting "as" keyword
+5) Mapped type
+    given a type create another type like Immutable, Optional, ...
+6) infer keyword: deduce a type from another type like identify return type of a function,
+first argument of a function, second argument, parameters, ...
+7) Generics 
+
+8) undefined, void and null 
+
+let data; // here value of data is undefined
+
+let person = null; // null is generally used to initialize an object
+
+function doTask(): void {
+    console.log("Hello!!!");
+}
+===================
+
+Remaining TS is pending...
+
+React using TypeScript.
+
+Using JavaScript in TypeScript projects
+npm i lodash
+npm i @types/lodash
+
+All type definitions are prefixed with @types/library
+like @types/react @types/node @types/lodash
+https://github.com/DefinitelyTyped/DefinitelyTyped
+
+If for a library type-definition is not available we need to write our own typings.d.ts file for the project
+
+declare module 'lodash' {
+  export function random(max: number): number;
+}
+
+React is a JS library to use it in TS:
+npm i react @types/react
+
+========================================
+
+
+npm create vite@latest
+react-sample
+React
+TypeScript
+
+=========
+
+Class Components can have state and life-cycle methods
+
+Functional Components
+React Hooks, introduced in React 16.8, are functions that enable functional components to "hook into" React state and lifecycle features that were previously only available in class components. 
+
+By doing this we no longer need to use class components, 99% of our components will be functional components
+
+Class components are heavy [extends Component]
+
+React Hooks:
+1) useState
+2) useEffect
+3) useReducer
+4) useContext
+5) useCallback
+6) useRef
+
+Hook useState: this hook is used to declare state members in functional component
+
+```
+    class StateComp extends Component {
+        state = {
+            age: 18,
+            name: 'Roger
+        }
+
+        setName(n) {
+            this.setState({
+                name: n
+            })
+        }
+
+        setAge(a) {
+            this.setState({
+                age: a
+            })
+        }
+    }
+
+```
+
+age = age + 1; // no reconcilliation
+
+only way to update state
+
+Hook useEffect: to have life-cycle methods in functional components
+
+```
+// componentDidMount - called only once when component is first time created
+
+useEffect(() => {
+    // code
+}, []); // empty dependency
+
+// componentDidUpdate --> called whenever a member [state, props ] change
+
+useEffect(() => {
+    // code
+}, [age]); // called whenever age dependency changes
+
+useEffect(() => {
+    // code
+}, [name]); // called whenever name dependency changes
+
+
+useEffect(() => {
+    // code
+}, [age, name]); // called whenever age or and name dependency changes
+
+```
+
+ npm install bootstrap
+
+ TypeScript using "type" generally in local files, interface can also be used like "type" to define shape of object, generally used for reusability, can alow inherit interface
+
+```
+ interface Product {
+    "name" :string,
+    "price": number
+ }
+
+ interface Mobile extends Product {
+    "camera": string,
+    "connectivity": string
+ }
+
+ ```
