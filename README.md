@@ -1029,3 +1029,16 @@ Already the project has react and react-dom
 shopapp> npm i react-router-dom bootstrap react-bootstrap axios
 
 https://fakestoreapi.com/products?limit=5
+
+=====
+
+Part 2: Cart
+Action: ADD_TO_CART, INCREMENT, DECREMENT, CLEAR_CART
+
+Checkout: Place Order --> API call to server, clear cart contents and redirect to landing page.
+
+Since state is complex and conditionally we need to mutate the state --> prefer reducer / useReducer
+
+============
+
+
