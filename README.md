@@ -1027,3 +1027,5 @@ Step 2) edit vite.config to change port from 5173 to 3000 and open browser
 Already the project has react and react-dom
 
 shopapp> npm i react-router-dom bootstrap react-bootstrap axios
+
+https://fakestoreapi.com/products?limit=5
