@@ -967,3 +967,63 @@ Here Hello World and B are children
 Whenever state changes in component, it triggers re-rendering of child components, leads to perfomance issue. can be avoided in class component using shouldComponentUpdate() life-cycle method.
 What is the solution for functional components?
 Memoization : HOC
+
+===========
+
+Single Page Application [SPA] and Responsive Web design [RWD] using:
+1) React bootstrap / MUI / Adobe WebSpecturn / KendoUI/ PrimeReact ..
+2) react router dom
+3) Context
+4) axios [ to make api calls] instead of fetch [default available in browser]
+
+=============
+
+Routers
+Client Side: Different URL shows different Views
+http://localhost:3000/products
+will display ProductList Component
+http://localhost:3000/orders
+will display Orders Component
+
+Server Side: Different URL different API or Resources 
+GET / POST / PUT/ PATCH / DELETE
+http://localhost:4000/products
+will send products JSON if its GET request
+if POST request payload contains new product which has to be added to products collection on Server
+
+
+Acme    products  cart form
+
+1) ProductList [http://localhost:3000/products]
+2) ProductCard 
+3) CartList [http://localhost:3000/cart]
+4) CartRow 
+5) NavbarComponent
+6) ProductForm [http://localhost:3000/form]
+7) Details [http://localhost:3000/details/3 ]
+8) Default [ wrong URL] [http://localhost:3000/dfs]
+
+==========
+Step 1) Create a react typescript project
+Scaffolding code:
+```
+npm create vite@latest
+
+shopapp
+React
+TypeScript
+No
+Yes
+```
+
+Step 2) edit vite.config to change port from 5173 to 3000 and open browser
+```
+ server: {
+        port: 3000,
+        open: true
+    }
+````
+
+Already the project has react and react-dom
+
+shopapp> npm i react-router-dom bootstrap react-bootstrap axios
