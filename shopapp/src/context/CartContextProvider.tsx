@@ -59,14 +59,15 @@ export default function CartContextProvider({children}: Props) {
         axios.post("http://localhost:1234/orders", order).then(response => {
             console.log("Order Placed!!!", response);
             dispatch({type:'CLEAR_CART'});
-            navigate("/");
+            navigate("/address");
         })
        
      }
 
     return <CartContext.Provider value={{items: state.items, 
                                         total: state.total, 
-                                        qty: state.qty, addToCart, increment, checkout}}>
+                                        qty: state.qty, 
+                                        addToCart, increment, checkout}}>
         {children}
     </CartContext.Provider>
 }

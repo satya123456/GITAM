@@ -1053,3 +1053,18 @@ JSON Server is a lightweight npm package that allows front-end developers to qui
 npx json-server  --watch data.json --port 1234
 
 sessionStorage.setItem("customer", "jack@gmail.com")
+
+FCP: First Contentful Paint
+By default all components will be loaded on to the Browser, this leads to FCP issues.
+good Practice: only load required components for intial render, other components can be lazily loaded [ rarely used components]
+
+========================
+
+Form Data:
+1) Controlled components
+2) Uncontrolled components
+
+=============
+
+Redux: Predicatable State Managment
+
