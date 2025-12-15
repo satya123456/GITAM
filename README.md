@@ -1045,3 +1045,11 @@ react-router-dom:
 1) different routes - show different components
 2) lazy loading of components [pending]
 
+Fake RESTful WS
+json-server
+
+JSON Server is a lightweight npm package that allows front-end developers to quickly create a mock RESTful API using a single JSON file
+
+npx json-server  --watch data.json --port 1234
+
+sessionStorage.setItem("customer", "jack@gmail.com")
