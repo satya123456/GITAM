@@ -5,7 +5,7 @@ import { useState } from "react"
 export default function StateComp() {
   let [age, updateAge] = useState<number>(18);
   let [name, setName] = useState<string>("Roger");
-
+  // age = age + 1; --> Avoid this, no reconcilliation
   return (
     <div>
       Name : {name} <br />

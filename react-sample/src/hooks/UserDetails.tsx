@@ -8,8 +8,9 @@ type UserDetailsProps = {
 export default function UserDetails({id}: UserDetailsProps) {
   let [user, setUser] = useState<User | null>( null);
   
-  // componentDidUpdate
+  // componentDidUpdate, gets called whenever id changes
   useEffect(() => {
+    console.log("Called useEffect in UserDetails")
      fetch('https://jsonplaceholder.typicode.com/users/' + id)
     .then(response => response.json())
     .then(data => {

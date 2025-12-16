@@ -910,3 +910,161 @@ useEffect(() => {
  }
 
  ```
+
+ hook: useReducer.
+
+ Prefer this hook to manage state instead of useState() when
+ 1) State is complex
+ 2) conditionally mutate the state
+ 3) state mutation depends on previous state
+
+ Example:
+ ```
+    shopping cart state is
+    {
+        "items": [
+            {"id": 5, "name": "A", price : 891.99, qty: 1, amount: 891.99},
+            {"id": 2, "name": "B", price : 50, qty: 4, amount: 200}
+        ],
+        "total": 1092.00,
+        "qty": 2
+    }
+
+Conditions:
+1) ACTION : ADD_TO_CART
+ PAYLOAD: {"id": 8, "name": "D", price:900, qty: 2}
+ // amount will be computed in server based on discount coupon, tax, ...
+
+ 2) ACTION : INCREMENT
+ PAYLOAD: {"id": 5}
+
+ 3) ACTION: CHECKOUT
+ ```
+
+ Reducer function takes (state, action) returns new state
+ Action is an object which contains type and payload
+ Simple Counter using useReducer hook
+
+===================================================
+
+React Context:
+React follows uni-directional data flow [ props is passed from top to bottom components]
+React Context is a feature in React that allows you to pass data through your component tree without having to pass props down manually at every level (a problem known as "prop drilling").
+
+```
+Here A and B are children
+<LoginComponent>
+    <A />
+    <B />
+</LoginComponent>
+Here Hello World and B are children
+<LoginComponent>
+    Hello World!!!
+    <B />
+</LoginComponent>
+```
+
+Whenever state changes in component, it triggers re-rendering of child components, leads to perfomance issue. can be avoided in class component using shouldComponentUpdate() life-cycle method.
+What is the solution for functional components?
+Memoization : HOC
+
+===========
+
+Single Page Application [SPA] and Responsive Web design [RWD] using:
+1) React bootstrap / MUI / Adobe WebSpecturn / KendoUI/ PrimeReact ..
+2) react router dom
+3) Context
+4) axios [ to make api calls] instead of fetch [default available in browser]
+
+=============
+
+Routers
+Client Side: Different URL shows different Views
+http://localhost:3000/products
+will display ProductList Component
+http://localhost:3000/orders
+will display Orders Component
+
+Server Side: Different URL different API or Resources 
+GET / POST / PUT/ PATCH / DELETE
+http://localhost:4000/products
+will send products JSON if its GET request
+if POST request payload contains new product which has to be added to products collection on Server
+
+
+Acme    products  cart form
+
+1) ProductList [http://localhost:3000/products]
+2) ProductCard 
+3) CartList [http://localhost:3000/cart]
+4) CartRow 
+5) NavbarComponent
+6) ProductForm [http://localhost:3000/form]
+7) Details [http://localhost:3000/details/3 ]
+8) Default [ wrong URL] [http://localhost:3000/dfs]
+
+==========
+Step 1) Create a react typescript project
+Scaffolding code:
+```
+npm create vite@latest
+
+shopapp
+React
+TypeScript
+No
+Yes
+```
+
+Step 2) edit vite.config to change port from 5173 to 3000 and open browser
+```
+ server: {
+        port: 3000,
+        open: true
+    }
+````
+
+Already the project has react and react-dom
+
+shopapp> npm i react-router-dom bootstrap react-bootstrap axios
+
+https://fakestoreapi.com/products?limit=5
+
+=====
+
+Part 2: Cart
+Action: ADD_TO_CART, INCREMENT, DECREMENT, CLEAR_CART
+
+Checkout: Place Order --> API call to server, clear cart contents and redirect to landing page.
+
+Since state is complex and conditionally we need to mutate the state --> prefer reducer / useReducer
+
+============
+
+react-router-dom:
+1) different routes - show different components
+2) lazy loading of components [pending]
+
+Fake RESTful WS
+json-server
+
+JSON Server is a lightweight npm package that allows front-end developers to quickly create a mock RESTful API using a single JSON file
+
+npx json-server  --watch data.json --port 1234
+
+sessionStorage.setItem("customer", "jack@gmail.com")
+
+FCP: First Contentful Paint
+By default all components will be loaded on to the Browser, this leads to FCP issues.
+good Practice: only load required components for intial render, other components can be lazily loaded [ rarely used components]
+
+========================
+
+Form Data:
+1) Controlled components
+2) Uncontrolled components
+
+=============
+
+Redux: Predicatable State Managment
+
