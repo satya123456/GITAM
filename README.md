@@ -1177,4 +1177,6 @@ npm create vite@latest
 ```
 
 npm i redux react-redux
+
+Chrome Web Store: Redux Devtools Extension
 =====
