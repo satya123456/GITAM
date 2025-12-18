@@ -20,7 +20,9 @@ export const CartContext = createContext<CartContextType>({
     items: [],
     total: 0,
     qty: 0,
+    // @ts-ignore
     addToCart: (product: Product) => {}, // initialize
+    // @ts-ignore
     increment: (id: number) => {},
     checkout: () => {}
 });

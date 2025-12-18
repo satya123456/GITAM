@@ -1188,8 +1188,8 @@ Why Redux Toolkit instead of Redux?
 Also for async logic also it configures Thunk out of box.
 * Effective: more work with less code
 * Support for react redux hooks:
-    useSelector() The selector is approximately equivalent to the mapStateToProps argument to connect conceptually.
-    useDispatch() : The selector is approximately equivalent to the mapDispatchToProps argument to connect conceptually.
+    useSelector() The selector is approximately equivalent to the mapStateToProps argument to connect() conceptually.
+    useDispatch() : The selector is approximately equivalent to the mapDispatchToProps argument to connect() conceptually.
 
 Immutable Logic:
 https://immerjs.github.io/immer/
@@ -1236,4 +1236,45 @@ shopapp-rtk > npm i axios
 2) remove reference in main.tsx, NavbarComponent, ProductCard, CartList, CartRow
 
 ====================
+
+RTK: 
+
+```
+counterSlice.js
+
+const initialState = { value: 0 }
+
+const counterSlice = createSlice({
+  name: 'counter',
+  initialState,
+  reducers: {
+    increment: (state, action) {
+      state.value += action.payload
+    },
+    decrement: (state) {
+      state.value--;
+    },
+    reset: (state) {
+        state.value = 0
+    }
+  },
+})
+
+export const { increment, decrement, reset } = counterSlice.actions
+export default counterSlice.reducer
+
+import counterReducer from './counterSlice';
+configureStore({
+  reducer: {
+    counter: counterReducer,
+    profile: profileReducer
+  }})
+
+  let dispatch = useDispatch();
+
+  <button type="button" onClick={() = dispatch(increment(5))}>
+  <button type="button" onClick={() = dispatch(decrement())}>
+  <button type="button" onClick={() = dispatch(reset())}>
+
+```
 
