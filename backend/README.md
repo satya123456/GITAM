@@ -88,3 +88,39 @@ ts-node is a TypeScript execution engine and REPL for Node.js. It JIT transforms
 
 5) npm start
 "start": "ts-node ./server",
+
+
+Client -> server -> routes -> controller -> service -> repository -> Sequelize to interact with database
+
+Docker desktop.
+The #1 containerization software for developers and teams
+
+Docker Hub has software images.
+Containers are applications running on docker
+
+https://hub.docker.com/
+
+```
+
+a) docker pull mysql
+
+For Windows:
+b) docker run --name local-mysql –p 3306:3306 -e MYSQL_ROOT_PASSWORD=Welcome123 -d mysql
+
+container name given here is "local-mysql"
+
+For Mac:
+docker run -p 3306:3306 -d --name local-mysql -e MYSQL_ROOT_PASSWORD=Welcome123 mysql
+
+
+c) CONNECT TO A MYSQL RUNNING CONTAINER:
+
+$ docker exec -t -i local-mysql bash
+
+d) Run MySQL client:
+
+bash terminal> mysql -u "root" -p
+
+mysql> exit
+
+```
