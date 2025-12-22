@@ -1328,3 +1328,51 @@ It assumes most of the developers uses Thunk as middleware  for async logic.
 Hence gives ready functions to use Thunk. Thunk library is installed.
 
 https://redux-toolkit.js.org/api/createAsyncThunk
+
+
+===========
+
+Complete Recap:
+1) JS, ES6 features, NodeJS as platform, Webpack, vite
+2) Understanding React Components
+a) Class components [ to understand state and life-cycle methods]
+b) Functional components 
+c) React.createElement()
+
+3) Functional components
+Hooks:
+a) useState
+b) useEffect
+c) useReducer
+d) useRef
+
+Context: to avoid props-drill -> but can also be used for state managment in smaller and medium sized applications
+
+e) useContext() --> Context consumner
+f) React Router dom -> different url should show different components, lazy loading of components
+g) useParams() to get Path Parameter from URL
+
+Predicatable State Management: REDUX
+REDUX is based on FLUX architecture --> Unidirectional flow of data
+even MOBX, ZUSTAND state management libraries are based on Flux architecture
+
+View -> dispatch action -> store -> reducer -> update state
+
+REDUX: 
+store -> single source of truth where state resides
+Reducer -> function which takes state and action and returns a new state.
+Root Reducer -> combines all reducers and used by the store to delegate action and state.
+Provider -> expose store to components
+
+react-redux: connect(mapStateToProps, mapDispatchProps)
+
+RTK: Redux Toolkit
+simple, opiniated way of using REDUX
+1) createSlice
+2) createAsyncThunk
+
+useSelector hook - mapStateToProps
+useDispatch hook - mapDispatchProps
+
+REDUX DEVTOOLS EXTENSION: time travel debugging
+---------------------
