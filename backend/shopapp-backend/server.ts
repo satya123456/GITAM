@@ -10,15 +10,23 @@ const routes: CommonRoutesConfig[]= []; // array of routes like api/products, ap
 const port = 1234;
 
 app.use(express.json()); // middleware
-app.use(cors()); 
+app.use(cors()); // middleware
 
 routes.push(new ProductRoutes(app));
 
 // http://localhost:1234/
+// app.get("/api/products", (req:Request, res: Response) => {
+
+// })
+
+// app.post("/api/product", (req:Request, res: Response) => {
+
+// });
 
 app.get("/", (req:Request, res: Response) => {
     res.status(200).send("Server is Running on Port 1234");
 });
+
 
 server.listen(port, () => {
     console.log("server started!!!");

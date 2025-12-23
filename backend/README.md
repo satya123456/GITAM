@@ -121,6 +121,30 @@ d) Run MySQL client:
 
 bash terminal> mysql -u "root" -p
 
-mysql> exit
+mysql> create database gitam_db;
 
 ```
+Client -> NodeJS -> Express Framework -> Routes -> Controller -> Service -> database drivers -> Database
+Client -> NodeJS -> Express Framework -> Routes -> Controller -> Service -> Sequelize [on top of database drivers] -> Database [ RDBMS]
+
+Database Drivers: MySQL2 for MySQL
+Tedious for  Microsoft's SQL Server
+
+ORM: Object Relational Mapping
+
+Objects mapped to Relational database tables.
+CRUD operations are easy, Object oriented, no need to know SQL
+Product.create({..}); // insert into products ..
+Product.findByPK(1); // select * from products wher id = 1;
+
+Java ORM Frameworks: Hibernate, TopLink, KODO, OpenJPA, ...
+.NET: NHibernate, Entity Framework
+JavaScript: Sequelize, TypeORM, Prisma
+
+===
+
+npm i sequelize mysql2 dotenv
+ npm i @types/sequelize -D
+
+
+Install REST client extension for VSCODE

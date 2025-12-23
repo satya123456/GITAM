@@ -1,0 +1,31 @@
+### CREATE PRODUCT
+
+POST http://localhost:1234/api/products
+Accept: application/json
+Content-Type: application/json
+
+{
+    "title": "Solid Gold Petite Micropave ",
+    "price": 168,
+    "image": "https://fakestoreapi.com/img/61sbMiUnoGL._AC_UL640_QL65_ML3_t.png"
+}
+
+
+### CREATE PRODUCT
+
+POST http://localhost:1234/api/products
+Accept: application/json
+Content-Type: application/json
+
+{
+    "title": "Pierced Owl Rose Gold Plated Stainless Steel Double",
+    "price": 10.99,
+    "image": "https://fakestoreapi.com/img/51UDEzMJVpL._AC_UL640_QL65_ML3_t.png"
+}
+
+
+### GET ALL PRODUCTS
+
+GET http://localhost:1234/api/products
+Accept: application/json
+
