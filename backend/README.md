@@ -148,3 +148,12 @@ npm i sequelize mysql2 dotenv
 
 
 Install REST client extension for VSCODE
+
+=====
+
+Task: Create Customer Model, routes, controller to handle /api/customers
+Customer should have email as primary key, name as string
+mapped to "customers" table without timestamp
+
+Mapping association between => Customer, Product, Order, LineItems
+
