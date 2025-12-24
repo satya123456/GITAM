@@ -5,10 +5,10 @@ Accept: application/json
 Content-Type: application/json
 
 {
-    "title": "Solid Gold Petite Micropave ",
-    "price": 168,
-    "image": "https://fakestoreapi.com/img/61sbMiUnoGL._AC_UL640_QL65_ML3_t.png"
-}
+ "title": "WD 4TB Gaming Drive Works with Playstation 4 Portable External Hard Drive",
+    "price": 114,
+    "image": "https://fakestoreapi.com/img/61mtL65D4cL._AC_SX679_t.png"
+ }
 
 
 ### CREATE PRODUCT
@@ -29,3 +29,19 @@ Content-Type: application/json
 GET http://localhost:1234/api/products
 Accept: application/json
 
+
+
+### GET PRODUCT BY ID
+
+GET http://localhost:1234/api/products/2
+Accept: application/json
+
+
+
+### UPDATE PRODUCT PRICE
+
+PATCH http://localhost:1234/api/products/2
+Accept: application/json
+Content-Type: application/json
+
+{"price": 11.25}

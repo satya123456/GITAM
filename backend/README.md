@@ -157,3 +157,39 @@ mapped to "customers" table without timestamp
 
 Mapping association between => Customer, Product, Order, LineItems
 
+Customer to Orders [ one to many association]
+Orders to Customer [ many to one association]
+Order to LineItems [ one to many]
+LineItems to Order [many to one]
+Product to LineItem[ one to many]
+LineItem to Product [many to One]
+
+https://modelarchive.databases.biz/data_models/index_all_models.html
+
+Association: Composition or Aggregation
+Order to Line Items is Composition
+Line Item to Product is Aggregation
+
+CREATE TABLE IF NOT EXISTS `orders` (`oid` INTEGER UNSIGNED auto_increment , `order_date` DATETIME NOT NULL, `total` DOUBLE PRECISION, `customer_fk` VARCHAR(255), PRIMARY KEY (`oid`), FOREIGN KEY (`customer_fk`) REFERENCES `customers` (`email`) ON DELETE SET NULL ON UPDATE CASCADE) ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS `items` (`item_id` INTEGER UNSIGNED auto_increment , `qty` INTEGER UNSIGNED NOT NULL, `price` DOUBLE PRECISION NOT NULL, `amount` DOUBLE PRECISION, `order_fk` INTEGER UNSIGNED, `product_fk` INTEGER UNSIGNED, PRIMARY KEY (`item_id`), FOREIGN KEY (`order_fk`) REFERENCES `orders` (`oid`) ON DELETE CASCADE ON UPDATE CASCADE, FOREIGN KEY (`product_fk`) REFERENCES `products` (`id`) ON DELETE SET NULL ON UPDATE CASCADE) ENGINE=InnoDB;
+
+
+https://martinfowler.com/bliki/DomainDrivenDesign.html
+https://martinfowler.com/bliki/BoundedContext.html
+
+Assume CLient is going to send payload like below to place Order:
+
+```
+    {
+        "email": "smith@gmail.com",
+        "items": [
+            {"product": 4, qty: 2},
+            {"product": 1, qty: 3}
+        ]
+    }
+
+Amount of line_items has to be computed -> price * qty - DISCOUNT + TAX
+Order Total has to be computed.
+Order Date also need not be sent from client.
+```

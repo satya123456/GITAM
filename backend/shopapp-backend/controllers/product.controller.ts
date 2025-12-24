@@ -23,6 +23,7 @@ class ProductController {
     // PATCH http://localhost:1234/api/products/1
     // {"price": 99999}
     async updatePrice(req:Request, res: Response) {
+        console.log(req.body);
         const product = await productService.updatePrice(+req.params.id, req.body.price);
         res.status(200).send(product);
     }

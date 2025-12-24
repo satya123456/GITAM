@@ -1,4 +1,5 @@
-import Product from "../models/product.model";
+// import Product from "../models/product.model";
+import {Product} from '../models'; //index.ts
 
 // can be used by standalone, web, mobile, tv, desktop application
 class ProductService {

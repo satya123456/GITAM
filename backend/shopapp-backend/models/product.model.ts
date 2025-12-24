@@ -9,6 +9,7 @@ class Product extends Model<InferAttributes<Product>, InferCreationAttributes<Pr
     declare title: string;
     declare price: number;
     declare image: string;
+    // declare qty: number; // inventory
 }
 
 // Mapping

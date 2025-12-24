@@ -1,4 +1,4 @@
-import { Application, Request, Response } from "express";
+import { Application, NextFunction, Request, Response } from "express";
 import { CommonRoutesConfig } from "./CommonRoutesConfig";
 import productController from "../controllers/product.controller";
 
@@ -19,6 +19,17 @@ export default class ProductRoutes extends CommonRoutesConfig {
             //     console.log(req.body);
             //     res.send("Product Added!!!");
             // });
+        // http://localhost:1234/api/products/2
+        this.app.route("/api/products/:id")
+            .all((req:Request, res:Response, next: NextFunction) => {
+               // middleware function runs for all http://localhost:1234/api/products/2 methods
+               next();
+            })
+            .get(productController.getById)
+            .patch(productController.updatePrice)
+            .delete((req:Request, res:Response) => {
+                res.status(200).send(`Deleted request for ${req.params.id}`);
+            })
 
         return this.app;
     }
