@@ -193,3 +193,21 @@ Amount of line_items has to be computed -> price * qty - DISCOUNT + TAX
 Order Total has to be computed.
 Order Date also need not be sent from client.
 ```
+
+26 - DEC - 2025 
+
+https://sequelize.org/docs/v6/core-concepts/validations-and-constraints/
+
+====
+
+Validation using Middleware in ExpressJS
+npm i express-validator
+
+
+
+
+
+
+
+
+

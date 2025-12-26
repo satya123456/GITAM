@@ -45,3 +45,17 @@ Accept: application/json
 Content-Type: application/json
 
 {"price": 11.25}
+
+
+
+### CREATE INVALID PRODUCT
+
+POST http://localhost:1234/api/products
+Accept: application/json
+Content-Type: application/json
+
+{
+    "title": "",
+    "price": -10.99,
+    "image": "https://fakestoreapi.com/img/51UDEzMJVpL._AC_UL640_QL65_ML3_t.png"
+}
