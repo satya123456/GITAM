@@ -283,6 +283,25 @@ we can have an extra middleware to see role based access
 Only ADMIN can add products, modify products
 All valid users can access products
 
-===========================
+==============================================
 
+NextJs Full-Stack:
 
+Using NextJS we can write api endpoints, Server Side React Components and client side react components
+
+Project will have NextJS + Sequelize + React
+
+npm create next-app@latest
+select all defaults
+
+Files to check: package.json
+
+next.config.ts --> Configuration file
+
+Folder structure:
+app/layout.tsx --> landing page
+app/page.tsx --> default route page rendered within layout.tsx
+any file based routes add it in "app" folder like hello/page.tsx
+http://localhost:3000/hello
+
+"api" folder for Endpoints
