@@ -305,3 +305,12 @@ any file based routes add it in "app" folder like hello/page.tsx
 http://localhost:3000/hello
 
 "api" folder for Endpoints
+
+npm i react-bootstrap bootstrap
+
+ProductsCard.tsx --> Client side React Component ["use client"]
+app/products/page.tsx --> Server Side React Component [ default]
+
+===
+
+Sequelize and Endpoints
