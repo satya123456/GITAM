@@ -1,0 +1,1 @@
+import{u as o,r as i,j as t}from"./index-CBP7lE2F.js";function u(){let{id:r}=o(),[e,a]=i.useState();return i.useEffect(()=>{fetch("https://fakestoreapi.com/products/"+r).then(s=>s.json()).then(s=>a(s))},[r]),t.jsxs("div",{children:["Details",e&&t.jsxs("div",{children:["Title: ",e.title," ",t.jsx("br",{}),t.jsx("img",{src:e.image})]})]})}export{u as default};

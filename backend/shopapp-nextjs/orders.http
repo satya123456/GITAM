@@ -1,0 +1,11 @@
+### Place Order
+POST http://localhost:3000/api/orders
+Accept: application/json
+Content-Type: application/json
+
+{
+    "email": "haritha@gmail.com",
+    "items": [
+        {"product": 5, "qty": 2}
+    ]
+}

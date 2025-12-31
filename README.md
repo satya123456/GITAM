@@ -1068,3 +1068,311 @@ Form Data:
 
 Redux: Predicatable State Managment
 
+Ecommerce application:
+1) react-router-dom
+client side routing
+lazy loading of components [lazy, Suspense, fallback]
+
+BrowserRouter, Routes, Route, Link
+
+2) Reducer function - simple JS function (state, action) => returns new state
+useReducer() hook is used to dispatch action to reducer function.
+
+3) Context: to avoid props drill
+    In this application state managed by useReducer we have placed it into Context, so that consumer can directly access it. Along with that we placed functions like addtoCart, increment and checkout in Context
+
+    useContext() is to Consume Context data / functions
+
+--------
+
+So far hooks covered:
+1) useState
+2) useEffect - side effects like API calls - component life cycle methods
+3) useReducer
+4) useContext: Context Consumer
+5) useParams(): to read path parameter http://server.com/api/products/4
+6) useRef(): to create a reference and attach it to DOM element/ components
+
+General use cases of Context:
+1) to avoid props-drill
+2) State management for smaller scale application [ like in this example]
+Examples:
+a) Handling shopping Cart
+b) Multi-stage processing of form data
+
+```
+    {
+        "signUpInfo": {
+            "username" : "",
+            "password" : ""
+        },
+        "personalInfo": {
+            "firstName": "",
+            "lastName": "",
+            "dateOfBirth": ""
+            
+        },
+        "professionalInfo": {
+            "qualificaiton" : "",
+            "experience": "",
+            "skills": ""
+        }
+    }
+
+```
+
+c) MCQ / Feedback forms
+
+=================
+
+REDUX: Predicatable State Management
+
+* Store: place where state resides, Single store per redux application
+* Reducers: same as what we have done, (state, action) => new state
+* Root Reducer
+
+```
+    {
+        "cart": {
+            "items": [...],
+            "total": 2325,
+            "qty": 4
+        },
+        "user": {
+            "avatar": "banu.png",
+            "name": " Banu Prakash"
+        }
+    }
+```
+
+Small Redux Application. --> Contacts Manager
+Action: ADD_CONTACT, REMOVE_CONTACT, CLEAR_CONTACTS
+
+```
+npm create vite@latest
+
+> npx
+> create-vite
+
+│
+◇  Project name:
+│  redux-example
+│
+◇  Select a framework:
+│  React
+│
+◇  Select a variant:
+│  JavaScript
+│
+◇  Use rolldown-vite (Experimental)?:
+│  No
+│
+◇  Install with npm and start now?
+│  Yes
+│
+◇  Scaffolding project in /Users/banuprakash/Documents/codes/GITAM/redux-example...
+│
+◇  Installing dependencies with npm...
+
+```
+
+npm i redux react-redux
+
+Chrome Web Store: Redux Devtools Extension
+=====
+
+Why Redux Toolkit instead of Redux?
+* Built on top of Redux
+* Simple [ store setup, creating reducers, immutable update logic ]
+* Opinionated [ assumes max users will use Redux DevTool extension, and hence configures it out of box]
+Also for async logic also it configures Thunk out of box.
+* Effective: more work with less code
+* Support for react redux hooks:
+    useSelector() The selector is approximately equivalent to the mapStateToProps argument to connect() conceptually.
+    useDispatch() : The selector is approximately equivalent to the mapDispatchToProps argument to connect() conceptually.
+
+Immutable Logic:
+https://immerjs.github.io/immer/
+https://immutable-js.com/
+Autodux
+
+====
+
+Migrating shopapp to use ReduxToolKit instead of Context
+
+```
+npm create vite@latest
+
+> npx
+> create-vite
+
+│
+◇  Project name:
+│  shopapp-rtk
+│
+◇  Select a framework:
+│  React
+│
+◇  Select a variant:
+│  TypeScript
+│
+◇  Use rolldown-vite (Experimental)?:
+│  No
+│
+◇  Install with npm and start now?
+│  Yes
+│
+◇  Scaffolding project in /Users/banuprakash/Documents/codes/GITAM/shopapp-rtk...
+│
+◇  Installing dependencies with npm...
+
+```
+
+shopapp-rtk > npm i @reduxjs/toolkit react-redux
+shopapp-rtk > npm i react-router-dom bootstrap react-bootstrap
+shopapp-rtk > npm i axios
+
+1) Remove Context and reducers folder
+2) remove reference in main.tsx, NavbarComponent, ProductCard, CartList, CartRow
+
+====================
+
+RTK: 
+
+```
+counterSlice.js
+
+const initialState = { value: 0 }
+
+const counterSlice = createSlice({
+  name: 'counter',
+  initialState,
+  reducers: {
+    increment: (state, action) {
+      state.value += action.payload
+    },
+    decrement: (state) {
+      state.value--;
+    },
+    reset: (state) {
+        state.value = 0
+    }
+  },
+})
+
+export const { increment, decrement, reset } = counterSlice.actions
+export default counterSlice.reducer
+
+import counterReducer from './counterSlice';
+configureStore({
+  reducer: {
+    counter: counterReducer,
+    profile: profileReducer
+  }})
+
+  let dispatch = useDispatch();
+
+  <button type="button" onClick={() = dispatch(increment(5))}>
+  <button type="button" onClick={() = dispatch(decrement())}>
+  <button type="button" onClick={() = dispatch(reset())}>
+
+{
+  cart: {
+    items: [],
+    quantity: 0,
+    total: 0
+  },
+  profile: {
+    avatar: 'banu.png',
+    name: 'Banu Prakash'
+  }
+}
+
+```
+
+https://dev.to/rudragupta_dev/building-a-to-do-app-with-rtk-query-2c0n
+
+=========
+
+
+REDUX actions are synchronous:
+View -> Dispatch action -> store -> root reducer --> reducer -> clones the data -> mutates -> gives it back to store -> store updates the state -> updated state is given to View
+
+Async Redux:
+https://redux.js.org/tutorials/fundamentals/part-6-async-logic
+
+Async Redux can be done using middleware: Thunk, Saga
+
+Thunk: subroutine
+
+dispatch(getProducts());
+
+dispatch({type:'FETCH_PRODUCTS'})
+
+dispatch({type:'ADD_TO_CART', payload: {...}})
+
+dispatch({type:'GET_PRODUCTS', products: {...fetched from API}})
+
+{
+    products: [{...}, {...}],
+    status: "idle",
+    error: null
+}
+
+https://github.com/reduxjs/redux-thunk/blob/master/src/index.ts
+
+=====
+
+Redux Toolkit: Highly opiniated Library.
+It assumes most of the developers uses Thunk as middleware  for async logic.
+Hence gives ready functions to use Thunk. Thunk library is installed.
+
+https://redux-toolkit.js.org/api/createAsyncThunk
+
+
+===========
+
+Complete Recap:
+1) JS, ES6 features, NodeJS as platform, Webpack, vite
+2) Understanding React Components
+a) Class components [ to understand state and life-cycle methods]
+b) Functional components 
+c) React.createElement()
+
+3) Functional components
+Hooks:
+a) useState
+b) useEffect
+c) useReducer
+d) useRef
+
+Context: to avoid props-drill -> but can also be used for state managment in smaller and medium sized applications
+
+e) useContext() --> Context consumner
+f) React Router dom -> different url should show different components, lazy loading of components
+g) useParams() to get Path Parameter from URL
+
+Predicatable State Management: REDUX
+REDUX is based on FLUX architecture --> Unidirectional flow of data
+even MOBX, ZUSTAND state management libraries are based on Flux architecture
+
+View -> dispatch action -> store -> reducer -> update state
+
+REDUX: 
+store -> single source of truth where state resides
+Reducer -> function which takes state and action and returns a new state.
+Root Reducer -> combines all reducers and used by the store to delegate action and state.
+Provider -> expose store to components
+
+react-redux: connect(mapStateToProps, mapDispatchProps)
+
+RTK: Redux Toolkit
+simple, opiniated way of using REDUX
+1) createSlice
+2) createAsyncThunk
+
+useSelector hook - mapStateToProps
+useDispatch hook - mapDispatchProps
+
+REDUX DEVTOOLS EXTENSION: time travel debugging
+---------------------

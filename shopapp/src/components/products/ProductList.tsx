@@ -8,7 +8,8 @@ export default function ProductList() {
 
   // componentDidMount
   useEffect(() => {
-    axios.get("https://fakestoreapi.com/products?limit=5")
+    // MySQL and Sequelize database and product.routes.ts
+    axios.get("http://localhost:1234/api/products")
     .then(response => {
       setProducts(response.data); //json payload
     })

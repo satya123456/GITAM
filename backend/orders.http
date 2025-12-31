@@ -1,0 +1,21 @@
+### PLACE ORDER -- TEMP
+
+POST http://localhost:3000/api/orders
+Accept: application/json
+Content-Type: application/json
+
+{
+    "email": "vanitha@gmail.com", 
+    "items": [
+            { "product":1, "qty": 3},
+            { "product": 2, "qty": 1}
+        ]
+}
+
+### Get Orders
+GET http://localhost:1234/api/orders
+Accept: application/json
+
+### Get Report
+GET http://localhost:1234/api/orders/report/2
+Accept: application/json

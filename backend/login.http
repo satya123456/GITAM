@@ -1,0 +1,15 @@
+### Login
+POST http://localhost:3000/api/users/login
+Accept: application/json
+Content-Type: application/json
+
+{
+    "email": "vanitha@gmail.com",
+    "password": "secret123"
+}
+
+###
+GET http://localhost:3000/api/orders
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWJqZWN0IjoidmFuaXRoYUBnbWFpbC5jb20iLCJ1c2VybmFtZSI6IlZhbml0aGEgS3VtYXJpIiwiYXV0aG9yaXRpZXMiOlsiQURNSU4iLCJNQU5BR0VSIl0sImlhdCI6MTc2NzAwNzY2NCwiZXhwIjoxNzY3MDk0MDY0fQ.Rbn0CJeYGuB8vFp6141K5mf0vYQprFyP8pGdti0icPo

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import  { useContext } from 'react'
 import type CartItem from '../../model/CartItem'
 import { Button } from 'react-bootstrap';
 import { CartContext } from '../../context/CartContextProvider';

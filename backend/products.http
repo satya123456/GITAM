@@ -1,0 +1,60 @@
+### CREATE PRODUCT
+
+POST http://localhost:1234/api/products
+Accept: application/json
+Content-Type: application/json
+
+{
+ "title": "WD 4TB Gaming Drive Works with Playstation 4 Portable External Hard Drive",
+    "price": 114,
+    "image": "https://fakestoreapi.com/img/61mtL65D4cL._AC_SX679_t.png"
+ }
+
+
+### CREATE PRODUCT
+
+POST http://localhost:1234/api/products
+Accept: application/json
+Content-Type: application/json
+
+{
+    "title": "Pierced Owl Rose Gold Plated Stainless Steel Double",
+    "price": 10.99,
+    "image": "https://fakestoreapi.com/img/51UDEzMJVpL._AC_UL640_QL65_ML3_t.png"
+}
+
+
+### GET ALL PRODUCTS
+
+GET http://localhost:1234/api/products
+Accept: application/json
+Authorization: Bearer edJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWJqZWN0IjoidmFuaXRoYUBnbWFpbC5jb20iLCJpYXQiOjE3NjY4MTE2NjQsImV4cCI6MTc2NjgxNTI2NCwicm9sZXMiOlsiQURNSU4iLCJNQU5BR0VSIl19.cP_lsJTR_YMf2Tj2sr47HMQifE-fmpd-b6dt8uMBEdU
+
+### GET PRODUCT BY ID
+
+GET http://localhost:1234/api/products/2
+Accept: application/json
+
+
+
+### UPDATE PRODUCT PRICE
+
+PATCH http://localhost:1234/api/products/2
+Accept: application/json
+Content-Type: application/json
+
+{"price": 11.25}
+
+
+
+### CREATE INVALID PRODUCT
+
+POST http://localhost:1234/api/products
+Accept: application/json
+Content-Type: application/json
+
+{
+    "title": "",
+    "price": -10.99,
+    "image": "https://fakestoreapi.com/img/51UDEzMJVpL._AC_UL640_QL65_ML3_t.png"
+}
